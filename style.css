@@ -26,12 +26,8 @@
     -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile */
 }
 
-html {
-    background-color: #0f0c29; /* Matches the darkest part of the gradient to hide white overscroll */
-    min-height: 100%;
-}
-
 body {
+    overscroll-behavior-y: none; /* Prevents rubber-banding/bounce effect on mobile */
     background: var(--bg-gradient);
     background-attachment: fixed; /* Keeps gradient consistent on scroll */
     color: var(--text-primary);
