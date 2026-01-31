@@ -26,10 +26,13 @@
     -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile */
 }
 
+html {
+    background-color: #24243e; /* Matches the bottom of the gradient */
+    overscroll-behavior: none; /* Disable pull-to-refresh/overscroll glow */
+}
+
 body {
-    overscroll-behavior-y: none; /* Prevents rubber-banding/bounce effect on mobile */
-    background: var(--bg-gradient);
-    background-attachment: fixed; /* Keeps gradient consistent on scroll */
+    overscroll-behavior-y: none;
     color: var(--text-primary);
     font-family: var(--font-body);
     min-height: 100vh;
@@ -39,6 +42,18 @@ body {
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
+}
+
+/* Fixed background via pseudo-element to avoid mobile scroll issues */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-gradient);
+    z-index: -2;
 }
 
 /* Background Ambient Glows - Adds depth */
